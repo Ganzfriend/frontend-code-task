@@ -15,7 +15,8 @@ const Key = ({_key, rowCount}) => {
   const {id, label, null_fraction, distinct: _distinct} = _key;
   const nullCount = Math.ceil(null_fraction * rowCount);
   const distinct = _distinct > 0 ? _distinct : Math.ceil(Math.abs(_distinct) * rowCount);
-
+  const diff = Math.ceil(rowCount - nullCount - distinct);
+  const duplicate = diff < 0 ? 0 : diff;
 
   return (
     <TableRow key={id}>
@@ -23,6 +24,7 @@ const Key = ({_key, rowCount}) => {
       <TableCell align="right">{label}</TableCell>
       <TableCell align="right">{nullCount}</TableCell>
       <TableCell align="right">{distinct}</TableCell>
+      <TableCell align="right">{duplicate}</TableCell>
     </TableRow>
   );
 };

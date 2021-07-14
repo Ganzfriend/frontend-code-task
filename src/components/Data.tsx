@@ -141,6 +141,7 @@ function Row({row}) {
                                 <TableCell align="right">Label</TableCell>
                                 <TableCell align="right">Null Entries</TableCell>
                                 <TableCell align="right">Distinct Entries</TableCell>
+                                <TableCell align="right">Duplicate Entries</TableCell>
                               </TableRow>
                             </TableHead>
                             <TableBody>
