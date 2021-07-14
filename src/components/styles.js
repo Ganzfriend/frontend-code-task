@@ -7,6 +7,9 @@ const styles = () => (
     },
     keyTable: {
 
+    },
+    categoryTable: {
+
     }
   }
 );

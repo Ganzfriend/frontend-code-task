@@ -10,7 +10,7 @@ import styles from './styles';
 
 const useStyles = makeStyles(styles);
 
-const Category = ({category, rowCount}) => {
+const Category = ({category}) => {
   const classes = useStyles();
   const {id, name, best_representation} = category;
   // const nullCount = Math.ceil(null_fraction * rowCount);
@@ -18,8 +18,9 @@ const Category = ({category, rowCount}) => {
 
   return (
     <TableRow key={id}>
-      <TableCell component="th" scope="row">{name}</TableCell>
-      <TableCell align="right">{id}</TableCell>
+      <TableCell component="th" scope="row">{id}</TableCell>
+      <TableCell align="right">{name}</TableCell>
+      <TableCell align="right" >{name}</TableCell>
     </TableRow>
   );
 };

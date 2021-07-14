@@ -19,9 +19,7 @@ const Key = ({_key, rowCount}) => {
 
   return (
     <TableRow key={id}>
-      <TableCell component="th" scope="row">
-        {id}
-      </TableCell>
+      <TableCell component="th" scope="row">{id}</TableCell>
       <TableCell align="right">{label}</TableCell>
       <TableCell align="right">{nullCount}</TableCell>
       <TableCell align="right">{distinct}</TableCell>

@@ -9,6 +9,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import {getDatasets, updateDataset} from '../api/api';
 import {Dataset} from '../api/api-definition';
 import Key from './Key';
+import Category from './Category';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
@@ -122,7 +123,7 @@ function Row({row}) {
                   <TableRow>
                     <TableCell>Row Count</TableCell>
                     <TableCell>Keys</TableCell>
-                    <TableCell align="right">Categories</TableCell>
+                    <TableCell>Categories</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -148,11 +149,29 @@ function Row({row}) {
                           </Table>
                         </TableContainer>
                       )
-                        : <p> No joining keys available </p>
+                        : <Typography> No joining keys available </Typography>
                       }
                     </TableCell>
-                    {/* <TableCell>{historyRow.customerId}</TableCell>
-                    <TableCell align="right">{historyRow.amount}</TableCell> */}
+                    <TableCell >
+                      {!!categories.length ? (
+                        <TableContainer component={Paper}>
+                          <Table className={classes.categoryTable}>
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Id</TableCell>
+                                <TableCell align="right">Name</TableCell>
+                                <TableCell align="right">Best Representation</TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableBody>
+                              {categories.map((c, idx) => <Category key={idx} category={c} /> )}
+                            </TableBody>
+                          </Table>
+                        </TableContainer>
+                      )
+                        : <Typography> No category data available </Typography>
+                      }
+                    </TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
