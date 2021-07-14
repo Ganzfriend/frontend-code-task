@@ -11,6 +11,8 @@ import styles from './styles';
 const useStyles = makeStyles(styles);
 
 const Key = ({_key, rowCount}) => {
+  // TODO: Add checks to ensure null/distinct/duplicate count is accurate and totals to rowCount
+  // then add cases dealing with inaccurate values
   const classes = useStyles();
   const {id, label, null_fraction, distinct: _distinct} = _key;
   const nullCount = Math.ceil(null_fraction * rowCount);
