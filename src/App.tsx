@@ -3,10 +3,14 @@ import './App.css';
 import React from 'react';
 
 import Dataset from './dataset/Dataset';
+import Data from './components/Data';
 
 function App() {
   return (
-    <Dataset />
+    <div>
+      <Dataset />
+      <Data />
+    </div>
   );
 }
 
