@@ -1,10 +1,10 @@
+// TODO: convert to TypeScript
 import React, {useState, useEffect} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, TableCellProps
 } from '@material-ui/core';
 
-import {getDatasets, updateDataset} from '../api/api';
+import {getDatasets} from '../api/api';
 import Row from './Row';
 
 const Data: React.FC = () => {
