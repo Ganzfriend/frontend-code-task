@@ -5,6 +5,7 @@ import {
 } from '@material-ui/core';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import moment from 'moment';
 
 import Key from './Key';
 import Category from './Category';
@@ -43,8 +44,8 @@ const Row = ({row}) => {
           {name}
         </TableCell>
         <TableCell align="right">{dataset_id}</TableCell>
-        <TableCell align="right">{created_at}</TableCell>
-        <TableCell align="right">{updated_at}</TableCell>
+        <TableCell align="right">{moment(created_at).format('MMMM Do YYYY, h:mm:ssa')}</TableCell>
+        <TableCell align="right">{moment(updated_at).format('MMMM Do YYYY, h:mm:ssa')}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
