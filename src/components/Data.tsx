@@ -21,7 +21,7 @@ const Data: React.FC = () => {
       .catch(err => console.log(err));
   }, []);
 
-  const rows = ['Id', 'Name', 'Created At', 'Updated At'];
+  const rows = ['Name', 'Id', 'Created At', 'Updated At'];
 
   return (
     // <div>
@@ -103,9 +103,9 @@ function Row({row}) {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
-          {dataset_id}
+          {name}
         </TableCell>
-        <TableCell align="right">{name}</TableCell>
+        <TableCell align="right">{dataset_id}</TableCell>
         <TableCell align="right">{created_at}</TableCell>
         <TableCell align="right">{updated_at}</TableCell>
       </TableRow>
