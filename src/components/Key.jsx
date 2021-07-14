@@ -12,32 +12,20 @@ const useStyles = makeStyles(styles);
 
 const Key = ({_key, rowCount}) => {
   const classes = useStyles();
-  const {id, label, null_fraction, distinct} = _key;
+  const {id, label, null_fraction, distinct: _distinct} = _key;
   const nullCount = Math.ceil(null_fraction * rowCount);
+  const distinct = _distinct > 0 ? _distinct : Math.ceil(Math.abs(_distinct) * rowCount);
+
 
   return (
-  <TableContainer component={Paper}>
-      <Table className={classes.keyTable}>
-        <TableHead>
-          <TableRow>
-            <TableCell>Id</TableCell>
-            <TableCell align="right">Label</TableCell>
-            <TableCell align="right">Null Entries</TableCell>
-            <TableCell align="right">Distinct Entries</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          <TableRow key={id}>
-            <TableCell component="th" scope="row">
-              {id}
-            </TableCell>
-            <TableCell align="right">{label}</TableCell>
-            <TableCell align="right">{nullCount}</TableCell>
-            <TableCell align="right">{distinct}</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <TableRow key={id}>
+      <TableCell component="th" scope="row">
+        {id}
+      </TableCell>
+      <TableCell align="right">{label}</TableCell>
+      <TableCell align="right">{nullCount}</TableCell>
+      <TableCell align="right">{distinct}</TableCell>
+    </TableRow>
   );
 };
 

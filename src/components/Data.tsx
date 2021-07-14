@@ -56,7 +56,7 @@ const Data: React.FC = () => {
             {rows.map((r, idx) => {
               const _align = idx === 0 ? "inherit" : "right";
               return (
-                <TableCell align={_align}>{r}</TableCell>
+                <TableCell key={r} align={_align}>{r}</TableCell>
               )
             })}
           </TableRow>
@@ -132,17 +132,21 @@ function Row({row}) {
                     </TableCell>
                     <TableCell >
                       {!!keys.length ? (
-                      //   keys.map(({id, label, null_fraction, distinct: _distinct}) => {
-                      //     const distinct = _distinct > 0 ? _distinct : Math.ceil(Math.abs(_distinct) * row_count);
-                      //   return (
-                      //   <div key={id}>
-                      //     <h6>{label}</h6>
-                      //     <h6>Id: {id}</h6>
-                      //     <h6>Distinct Rows: {distinct}</h6>
-                      //   </div>
-                      //   )
-                      // }))
-                      keys.map((k, idx) => <Key key={idx} _key={k} rowCount={row_count} /> )
+                        <TableContainer component={Paper}>
+                          <Table className={classes.keyTable}>
+                            <TableHead>
+                              <TableRow>
+                                <TableCell>Id</TableCell>
+                                <TableCell align="right">Label</TableCell>
+                                <TableCell align="right">Null Entries</TableCell>
+                                <TableCell align="right">Distinct Entries</TableCell>
+                              </TableRow>
+                            </TableHead>
+                            <TableBody>
+                              {keys.map((k, idx) => <Key key={idx} _key={k} rowCount={row_count} /> )}
+                            </TableBody>
+                          </Table>
+                        </TableContainer>
                       )
                         : <p> No joining keys available </p>
                       }
