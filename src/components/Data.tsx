@@ -8,6 +8,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 import {getDatasets, updateDataset} from '../api/api';
 import {Dataset} from '../api/api-definition';
+import Key from './Key';
 import styles from './styles';
 
 const useStyles = makeStyles(styles);
@@ -122,7 +123,6 @@ function Row({row}) {
                     <TableCell>Row Count</TableCell>
                     <TableCell>Keys</TableCell>
                     <TableCell align="right">Categories</TableCell>
-                    {/* <TableCell align="right">Total price ($)</TableCell> */}
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -130,11 +130,25 @@ function Row({row}) {
                     <TableCell component="th" scope="row">
                       {row_count}
                     </TableCell>
+                    <TableCell >
+                      {!!keys.length ? (
+                      //   keys.map(({id, label, null_fraction, distinct: _distinct}) => {
+                      //     const distinct = _distinct > 0 ? _distinct : Math.ceil(Math.abs(_distinct) * row_count);
+                      //   return (
+                      //   <div key={id}>
+                      //     <h6>{label}</h6>
+                      //     <h6>Id: {id}</h6>
+                      //     <h6>Distinct Rows: {distinct}</h6>
+                      //   </div>
+                      //   )
+                      // }))
+                      keys.map((k, idx) => <Key key={idx} _key={k} rowCount={row_count} /> )
+                      )
+                        : <p> No joining keys available </p>
+                      }
+                    </TableCell>
                     {/* <TableCell>{historyRow.customerId}</TableCell>
-                    <TableCell align="right">{historyRow.amount}</TableCell>
-                    <TableCell align="right">
-                      {Math.round(historyRow.amount * row.price * 100) / 100}
-                    </TableCell> */}
+                    <TableCell align="right">{historyRow.amount}</TableCell> */}
                   </TableRow>
                 </TableBody>
               </Table>
